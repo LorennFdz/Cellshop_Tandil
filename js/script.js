@@ -14,7 +14,7 @@ if(loading_container != null){
             if (hasExecuted) {
                 intervalId = setInterval(() => {
                     moveToRight();
-                }, 3000);
+                }, 2000);
             }
         }, 3000);
         
@@ -77,10 +77,10 @@ function pauseAndRestartInterval() {
   setTimeout(() => {
     intervalId = setInterval(() => {
       moveToRight();
-    }, 3000);
+    }, 2000);
 
     isTransitioning = false;
-  }, 7000); // Usar el mismo intervalo de 3000 milisegundos
+  }, 5000); // Usar el mismo intervalo de 3000 milisegundos
 }
 
 /* MOVER EL SLIDER CON EL TOUCH */

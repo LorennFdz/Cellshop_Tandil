@@ -514,6 +514,7 @@ body::-webkit-scrollbar {
     width: 80%;
     height: calc(100vh / 1.25);
     border-radius: 10px;
+    padding-bottom: 10px;
     background-color: #969696;
     z-index: 3;
 }
@@ -532,6 +533,9 @@ body::-webkit-scrollbar {
 }
 .section-5 article {
     padding: 0 10px;
+}
+.section-5 .payments-methods {
+    display: none;
 }
 .section-5 article h2 {
     font-size: 16px;
@@ -669,6 +673,9 @@ body::-webkit-scrollbar {
     }
     .section-5 .logo-section-5 {
         width: 80px;
+    }
+    .section-5 .payments-methods {
+        display: initial;
     }
 
     .footer .info-footer-mobile .contact,
@@ -913,6 +920,7 @@ body::-webkit-scrollbar {
 
     .section-1 .slider .text-slider h1 {
         width: 500px;
+        padding: 0;
     }
     .section-1 .slider .text-slider p {
         width: 700px;
@@ -923,7 +931,7 @@ body::-webkit-scrollbar {
         width: 60px;
     }
     .section-2 {
-        height: 595px;
+        height: 491px;
     }
     .section-2 .products {
         justify-content: space-evenly;
@@ -933,7 +941,7 @@ body::-webkit-scrollbar {
     }
     .section-2 .products section {
         flex: initial;
-        width: 200px;
+        width: 170px;
         height: 385px;
         margin: 0;
         border-radius: 10px;
@@ -946,12 +954,15 @@ body::-webkit-scrollbar {
     .section-2 .products section .text-products {
         top: 245px;
     }
+    .section-2 .products section .text-products h2 {
+        font-size: 24px;
+    }
     .section-2 .products section .text-products p {
-        top: 60px;
-        font-size: 18px;
+        top: 75px;
+        font-size: 16px;
     }
     .section-2 .products section .text-products span {
-        top: 110px;
+        top: 120px;
     }
     .section-2 .products section img {
         height: 245px;
@@ -964,14 +975,22 @@ body::-webkit-scrollbar {
         height: 502px;
     }
     .section-3 .more-products section .text-more-products {
-        margin-top: 0;
+        margin-top: 2%;
+        height: 20%;
+    }
+    .section-3 .more-products section .text-more-products h1 {
+        font-size: 24px;
+    }
+    .section-3 .more-products section .text-more-products p,
+    .section-3 .more-products section .text-more-products span {
+        font-size: 16px;
     }
     .section-3 .more-products section .img-more-products {
-        width: 720px;
-        height: 412px;
+        width: 100%;
+        height: 80%;
         position: initial;
         top: auto;
-        left: auto;
+        left: 0;
         transform: none;
         display: flex;
         justify-content: center;
@@ -979,15 +998,8 @@ body::-webkit-scrollbar {
         margin-top: 10px;
     }
     .section-3 .more-products section .img-more-products img {
-        width: initial;
-        height: initial;
-        object-fit: initial;
-    }
-    .section-3 .more-products section .text-more-products h1 {
-        font-size: 36px;
-    }
-    .section-3 .more-products section .text-more-products p {
-        font-size: 18px;
+        width: 100%;
+        height: 90%;
     }
 
     .section-4 .info-contact h1 {
@@ -1000,25 +1012,6 @@ body::-webkit-scrollbar {
     .section-4 .form-contact input, textarea {
         font-size: 14px;
     }
-    /*.section-4 {
-        height: 512px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin: 0 auto;
-    }
-    .section-4 .info-contact {
-        width: 40%;
-    }
-    .section-4 .info-contact h1 {
-        margin-top: 0;
-    }
-    .section-4 .form-contact {
-        width: 40%;
-        justify-content: center;
-    }*/
-    
-    
     .section-5 .logo-section-5 {
         width: 130px;
     }
@@ -1043,5 +1036,23 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (min-width: 1280px) {
-    
+    .section-1 .slider .text-slider h1 {
+        width: 50%;
+        font-size: 36px;
+    }
+    .section-1 .slider .text-slider p {
+        width: 70%;
+        font-size: 16px;
+    }
+
+    .section-2 {
+        height: 529px;
+    }
+    .section-2 h1 {
+        margin: 50px 0;
+        font-size: 36px;
+    }
+    .section-2 .products section {
+        width: 200px;
+    }
 }
