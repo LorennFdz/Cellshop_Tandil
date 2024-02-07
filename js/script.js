@@ -128,12 +128,12 @@ btnForm.addEventListener("click", validateForm);
 
 function validateForm(event) {
     event.preventDefault();
-    let nameform = document.getElementById("name-form").value;
-    let email = document.getElementById("email-form").value;
-    let message = document.getElementById("message-form").value;
+    let nameForm = document.getElementById("form_name").value;
+    let emailForm = document.getElementById("form_email").value;
+    let messageForm = document.getElementById("form_message").value;
     let errorForm = document.getElementById("error-form");
     let validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(nameform.trim() == '' || !validEmail.test(email) || message.trim() == ''){
+    if(nameForm.trim() == '' || !validEmail.test(emailForm) || messageForm.trim() == ''){
         errorForm.style.display = 'block';
         errorForm.style.color = 'red';
         errorForm.innerText = 'Completar todos los campos. (*)';
@@ -148,9 +148,9 @@ function validateForm(event) {
         const serviceID = 'service_t8b4utn';
         const templateID_Programador = 'template_biyim8n';
         emailjs.send(serviceID, templateID_Programador, {
-            name: nameform,
-            message: message,
-            email: email,
+            form_name: nameForm,
+            message: messageForm,
+            form_email: emailForm,
             })
          .then(() => {
              btnForm.value = 'Enviar';
@@ -161,9 +161,9 @@ function validateForm(event) {
          });
         const templateID_Lfernandez = "template_r0r1y68";
         emailjs.send(serviceID, templateID_Lfernandez, {
-            name: nameform,
-            message: message,
-            email: email,
+            form_name: nameForm,
+            message: messageForm,
+            form_email: emailForm,
             })
          .then(() => {
              btnForm.value = 'Enviar';
