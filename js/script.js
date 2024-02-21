@@ -16,7 +16,7 @@ if(loading_container != null){
                     moveToRight();
                 }, 2000);
             }
-        }, 3000);
+        }, 1000);
         
     });
 }
