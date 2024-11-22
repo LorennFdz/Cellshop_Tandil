@@ -221,6 +221,7 @@ body::-webkit-scrollbar {
     text-align: justify;
     width: 100%;
     position: absolute;
+    backdrop-filter: blur(5px);
     top: 95%;
     left: 50%;
     transform: translate(-50%, -95%);

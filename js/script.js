@@ -124,6 +124,7 @@ closeMenu.addEventListener("click", () => {
 /* VALIDAR FORMULARIO */
 
 const btnForm = document.getElementById("btn-form");
+const tiempoMinimo = 2 * 60 * 1000; // 2 minutos en milisegundos
 btnForm.addEventListener("click", validateForm);
 
 function validateForm(event) {
@@ -139,39 +140,47 @@ function validateForm(event) {
         errorForm.innerText = 'Completar todos los campos. (*)';
     }
     else {
-        errorForm.style.display = 'block';
-        errorForm.style.color = "#47A12C";
-        errorForm.innerText = '¡Consulta enviada correctamente!';
-    
+        // Comprobar si ha pasado el tiempo mínimo desde el último envío
+        const ultimoEnvio = localStorage.getItem('ultimoEnvio');
+        if (ultimoEnvio && Date.now() - ultimoEnvio < tiempoMinimo) {
+            errorForm.textContent = "Por favor, espera unos minutos antes de enviar nuevamente.";
+            errorForm.style.color = '#393D3F';
+            return;
+        }
         btnForm.value = 'Enviando...';
-
         const serviceID = 'service_t8b4utn';
         const templateID_Programador = 'template_biyim8n';
         emailjs.send(serviceID, templateID_Programador, {
             form_name: nameForm,
             message: messageForm,
             form_email: emailForm,
-            })
-         .then(() => {
-             btnForm.value = 'Enviar';
-             errorForm.innerText = '¡Consulta enviada correctamente!';
-         }, (err) => {
-             btnForm.value = 'Enviar';
-             errorForm.innerText = 'No se pudo enviar la consulta. Intente nuevamente en unos minutos.';
-         });
+        })
+            .then(() => {
+                btnForm.value = 'Enviar';
+                errorForm.textContent = "¡Consulta enviada correctamente!";
+                localStorage.setItem('ultimoEnvio', Date.now());
+            }, (err) => {
+                btnForm.textContent = 'Enviar';
+                errorForm.textContent = "No se pudo enviar el formulario. Intente nuevamente más tarde.";
+            });
         const templateID_Lfernandez = "template_r0r1y68";
         emailjs.send(serviceID, templateID_Lfernandez, {
             form_name: nameForm,
             message: messageForm,
             form_email: emailForm,
-            })
-         .then(() => {
-             btnForm.value = 'Enviar';
-             errorForm.innerText = '¡Consulta enviada correctamente!';
-         }, (err) => {
-             btnForm.value = 'Enviar';
-             errorForm.innerText = 'No se pudo enviar la consulta. Intente nuevamente en unos minutos.';
-         });
+        })
+            .then(() => {
+                btnForm.value = 'Enviar';
+                errorForm.textContent = "¡Consulta enviada correctamente!";
+                localStorage.setItem('ultimoEnvio', Date.now());
+            }, (err) => {
+                btnForm.textContent = 'Enviar';
+                errorForm.textContent = "No se pudo enviar el formulario. Intente nuevamente más tarde.";
+            });
+
+        errorForm.style.display = 'block';
+        errorForm.style.color = "#47A12C";
+        errorForm.innerText = '¡Consulta enviada correctamente!';
     }
 }
 
